@@ -46,6 +46,9 @@ function buildTrustStops() {
   $('trust-stops').innerHTML = STOPS
     .map(s => `<option value="${trustFor(s.ml).toFixed(2)}" label="${s.label}"></option>`)
     .join('')
+  $('trust-ticks').innerHTML = STOPS
+    .map(s => `<span style="left:${(trustFor(s.ml) * 100).toFixed(1)}%">${s.label}</span>`)
+    .join('')
 }
 
 function tally(): string {
@@ -67,11 +70,11 @@ function renderBars(deltaMl: number) {
   const rows = [you, ...REFERENCE.map(r => ({ ...r, you: false }))]
   const max = Math.max(...rows.map(r => r.ml), 1)
   $('bars').innerHTML = rows.map(r => {
-    const pct = Math.max(0.5, (100 * r.ml) / max).toFixed(2)
+    const w = Math.max(0.005, r.ml / max).toFixed(4)
     return `
       <div class="bar${r.you ? ' bar-you' : ''}">
         <span class="bar-label">${r.label}</span>
-        <span class="bar-track"><span class="bar-fill" style="width:${pct}%"></span></span>
+        <span class="bar-track"><span class="bar-fill" style="--w:${w}"></span></span>
         <span class="bar-value">${formatNumber(r.ml / 1000)} L</span>
       </div>`
   }).join('')
@@ -92,6 +95,7 @@ function render() {
     $('presets').querySelector(`[data-id="${p.id}"] output`)!.textContent = String(state.counts[p.id])
   }
 
+  $('trust').style.setProperty('--pct', `${(state.trust * 100).toFixed(1)}%`)
   $('trust-label').textContent = stop.exact ? stop.label : `somewhere near ${stop.label}`
   $('trust-ml').textContent = r.waterPerPromptMl.toPrecision(2)
 

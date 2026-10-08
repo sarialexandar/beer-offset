@@ -10,65 +10,106 @@
   <meta property="og:image" content="%VITE_SITE_URL%og.png">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0b3d2e">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%230b3d2e'/%3E%3Cpath d='M16 7c4 4 6 7.5 6 11.5a6 6 0 0 1-12 0C10 14.5 12 11 16 7z' fill='%23e2a93b'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/src/styles.css">
 </head>
 <body>
   <header class="masthead">
-    <div class="badge" id="badge">
-      <span class="badge-text">Certified<br>Offset<br>Partner</span>
-      <span class="stamp" aria-hidden="true">REVOKED</span>
+    <div class="wrap masthead-grid">
+      <p class="report-meta">Fiscal year 2026 · Scopes 1, 2 and Pint · Unaudited</p>
+      <div class="badge" id="badge" role="img" aria-label="Certified Offset Partner badge">
+        <svg viewBox="0 0 120 120" aria-hidden="true">
+          <defs>
+            <path id="badge-ring" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/>
+          </defs>
+          <circle cx="60" cy="60" r="57" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="60" cy="60" r="33" fill="none" stroke="currentColor" stroke-width="1"/>
+          <text class="badge-ring-text" font-size="10" letter-spacing="1.6">
+            <textPath href="#badge-ring" startOffset="0">CERTIFIED OFFSET PARTNER · 2026 ·</textPath>
+          </text>
+          <path d="M60 40c6 6 9 11 9 17a9 9 0 0 1-18 0c0-6 3-11 9-17z" fill="currentColor"/>
+          <path d="M60 58v22M60 70c-3-4-7-5-11-5M60 74c3-4 7-5 11-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+        <span class="stamp" aria-hidden="true">REVOKED</span>
+      </div>
+      <h1>Beer Offset</h1>
+      <p class="subtitle">2026 Sustainability Impact Report</p>
+      <p class="masthead-tagline">Offset your prompts. One pint at a time.</p>
     </div>
-    <h1>Beer Offset</h1>
-    <p class="subtitle">2026 Sustainability Impact Report</p>
   </header>
 
-  <main>
+  <main class="wrap">
     <section class="summary" aria-labelledby="summary-h">
-      <h2 id="summary-h">Executive summary</h2>
-      <p id="summary-naive">Beer Offset empowers stakeholders to transform discretionary beverage consumption into measurable compute-sector water resilience. Every litre not consumed as water is a litre available to our partners' thermal management infrastructure. Together, we are closing the loop.</p>
-      <p id="summary-honest" hidden>Brewing one litre of beer uses about five litres of water. We were hoping you would not ask.</p>
+      <h2 id="summary-h">1. Executive summary</h2>
+      <div class="summary-grid">
+        <p class="pull">Closing the loop, one pint at a time.</p>
+        <div>
+          <p id="summary-naive">Beer Offset empowers stakeholders to transform discretionary beverage consumption into measurable compute-sector water resilience. Every litre not consumed as water is a litre available to our partners' thermal management infrastructure. Together, we are closing the loop.</p>
+          <p id="summary-honest" hidden>Brewing one litre of beer uses about five litres of water. We were hoping you would not ask.</p>
+        </div>
+      </div>
     </section>
 
     <section class="contribution" aria-labelledby="contrib-h">
-      <h2 id="contrib-h">Report your contribution</h2>
-      <div class="presets" id="presets"></div>
+      <h2 id="contrib-h">2. Consumption disclosure</h2>
+      <p class="caption">Table 1. Units consumed by the reporting entity (you). Please report all units. We will not tell anyone.</p>
+      <div class="presets" id="presets" role="group" aria-label="Beers consumed"></div>
       <div class="trust">
+        <p class="caption">Figure 1. Methodology confidence. Water consumed per AI prompt, by whose number you believe.</p>
         <label for="trust">Methodology confidence</label>
         <input type="range" id="trust" min="0" max="1" step="0.01" value="0" list="trust-stops">
         <datalist id="trust-stops"></datalist>
+        <div class="trust-ticks" id="trust-ticks" aria-hidden="true"></div>
         <div class="trust-ends" aria-hidden="true"><span>Google</span><span>Doomer</span></div>
         <p class="trust-readout">Using <strong id="trust-label">Google</strong>: <span id="trust-ml">0.26</span> ml of water per prompt</p>
       </div>
     </section>
+  </main>
 
-    <section class="hero" aria-live="polite">
-      <canvas id="glass" width="300" height="420" aria-label="A beer glass showing your offset level"></canvas>
+  <section class="hero" aria-live="polite" aria-labelledby="hero-h">
+    <div class="wrap hero-grid">
+      <h2 id="hero-h" class="hero-heading">3. Net compute-water contribution</h2>
+      <div class="hero-glass">
+        <canvas id="glass" width="300" height="420" aria-label="A beer glass showing your offset level"></canvas>
+      </div>
       <div class="hero-text">
         <p class="hero-verb" id="hero-verb">You have offset</p>
-        <p class="hero-number"><span id="tokens">0</span> tokens</p>
-        <p class="hero-sub">That is <span id="prompts">0</span> prompts, or</p>
+        <p class="hero-number"><span id="tokens">0</span><span class="hero-unit"> tokens</span></p>
+        <p class="hero-sub">That is <span id="prompts">0</span> prompts<sup>1</sup>, or</p>
         <ul class="equivalents" id="equivalents"></ul>
-        <button type="button" id="share" class="share">Share your impact</button>
+        <button type="button" id="share" class="share">Download impact statement</button>
+        <p class="hero-footnote"><sup>1</sup> At 300 tokens per prompt. See Methodology.</p>
       </div>
-    </section>
+    </div>
+  </section>
 
+  <main class="wrap" aria-label="Report continued">
     <section class="impact" aria-labelledby="impact-h">
-      <h2 id="impact-h">Impact breakdown</h2>
+      <h2 id="impact-h">4. Comparative impact</h2>
+      <p class="caption">Figure 2. Water, in litres. Context has been selected carefully.</p>
       <div class="bars" id="bars"></div>
     </section>
 
-    <section class="disclosure">
-      <label class="switch">
-        <input type="checkbox" id="honest">
-        <span class="switch-track" aria-hidden="true"></span>
-        <span class="switch-label">Full disclosure</span>
-      </label>
-      <p class="switch-hint">Enable to apply our complete water accounting framework.</p>
+    <section class="disclosure" aria-labelledby="disc-h">
+      <h2 id="disc-h">5. Auditor's note</h2>
+      <div class="note">
+        <p class="note-text">Our auditors have asked us to include a switch. We have included a switch.</p>
+        <label class="switch">
+          <input type="checkbox" id="honest">
+          <span class="switch-track" aria-hidden="true"></span>
+          <span class="switch-label">Full disclosure</span>
+        </label>
+        <p class="switch-hint">Enable to apply our complete water accounting framework.</p>
+      </div>
     </section>
 
     <section class="methodology" aria-labelledby="method-h">
-      <h2 id="method-h">Methodology</h2>
-      <p>Nobody agrees on how much water a single AI prompt uses. Published estimates differ by more than a hundred times, mostly because they disagree on what to count. The slider above lets you pick whose number you believe. Every figure below is modelled, not metered.</p>
+      <h2 id="method-h">6. Methodology</h2>
+      <p class="lede">Nobody agrees on how much water a single AI prompt uses. Published estimates differ by more than a hundred times, mostly because they disagree on what to count. The slider above lets you pick whose number you believe. Every figure below is modelled, not metered.</p>
       <dl>
         <dt>0.26 ml per prompt (Google)</dt>
         <dd>Google's August 2025 technical report, median Gemini text prompt. Counts on-site cooling water only. Excludes water used to generate electricity, training, and networking.</dd>
@@ -91,9 +132,12 @@
     </section>
   </main>
 
-  <footer>
-    <p>Beer Offset is not a registered offset program. Nothing is. Please also drink water.</p>
-    <p><a href="https://github.com/" id="repo-link">Source</a></p>
+  <footer class="colophon">
+    <div class="wrap">
+      <p class="colophon-meta">Prepared by nobody. Assured by no one. Printed on screens.</p>
+      <p class="colophon-line">Beer Offset is not a registered offset program. Nothing is. Please also drink water.</p>
+      <p class="colophon-link"><a href="https://github.com/" id="repo-link">Source</a></p>
+    </div>
   </footer>
 
   <div id="card" class="card" aria-hidden="true"></div>
