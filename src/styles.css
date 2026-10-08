@@ -271,7 +271,7 @@ main > section:last-child { border-bottom: 0; }
   }
 }
 .hero-heading { grid-area: h; color: var(--on-field); margin: 0; }
-.caption-on-field { color: var(--on-field-2); margin: .75rem 0 0; text-align: center; }
+.caption-on-field { color: var(--on-field-2); margin: 0 0 1rem; }
 .hero-glass { grid-area: glass; }
 .hero-glass canvas { display: block; margin: 0 auto; width: 300px; max-width: 100%; height: auto; aspect-ratio: 300 / 420; }
 @media (max-width: 47.99rem) { .hero-glass canvas { max-width: 220px; } }

@@ -140,6 +140,8 @@ function render() {
   $('summary-honest').hidden = !honest
   $('hint-naive').hidden = honest
   $('hint-honest').hidden = !honest
+  $('glass-caption-naive').hidden = honest
+  $('glass-caption-honest').hidden = !honest
   $('badge').setAttribute('aria-label', honest ? 'Certified Offset Partner badge, revoked' : 'Certified Offset Partner badge')
 
   $('hero-verb').textContent = honest ? 'You owe the GPUs' : 'You have offset'
