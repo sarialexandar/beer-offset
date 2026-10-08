@@ -4,9 +4,100 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Beer Offset</title>
+  <meta name="description" content="Offset your prompts. One pint at a time.">
+  <meta property="og:title" content="Beer Offset — 2026 Sustainability Impact Report">
+  <meta property="og:description" content="Offset your prompts. One pint at a time.">
+  <meta property="og:image" content="%VITE_SITE_URL%og.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="/src/styles.css">
 </head>
 <body>
-  <h1>Beer Offset</h1>
+  <header class="masthead">
+    <div class="badge" id="badge">
+      <span class="badge-text">Certified<br>Offset<br>Partner</span>
+      <span class="stamp" aria-hidden="true">REVOKED</span>
+    </div>
+    <h1>Beer Offset</h1>
+    <p class="subtitle">2026 Sustainability Impact Report</p>
+  </header>
+
+  <main>
+    <section class="summary" aria-labelledby="summary-h">
+      <h2 id="summary-h">Executive summary</h2>
+      <p id="summary-naive">Beer Offset empowers stakeholders to transform discretionary beverage consumption into measurable compute-sector water resilience. Every litre not consumed as water is a litre available to our partners' thermal management infrastructure. Together, we are closing the loop.</p>
+      <p id="summary-honest" hidden>Brewing one litre of beer uses about five litres of water. We were hoping you would not ask.</p>
+    </section>
+
+    <section class="contribution" aria-labelledby="contrib-h">
+      <h2 id="contrib-h">Report your contribution</h2>
+      <div class="presets" id="presets"></div>
+      <div class="trust">
+        <label for="trust">Methodology confidence</label>
+        <input type="range" id="trust" min="0" max="1" step="0.01" value="0" list="trust-stops">
+        <datalist id="trust-stops"></datalist>
+        <div class="trust-ends" aria-hidden="true"><span>Google</span><span>Doomer</span></div>
+        <p class="trust-readout">Using <strong id="trust-label">Google</strong>: <span id="trust-ml">0.26</span> ml of water per prompt</p>
+      </div>
+    </section>
+
+    <section class="hero" aria-live="polite">
+      <canvas id="glass" width="300" height="420" aria-label="A beer glass showing your offset level"></canvas>
+      <div class="hero-text">
+        <p class="hero-verb" id="hero-verb">You have offset</p>
+        <p class="hero-number"><span id="tokens">0</span> tokens</p>
+        <p class="hero-sub">That is <span id="prompts">0</span> prompts, or</p>
+        <ul class="equivalents" id="equivalents"></ul>
+        <button type="button" id="share" class="share">Share your impact</button>
+      </div>
+    </section>
+
+    <section class="impact" aria-labelledby="impact-h">
+      <h2 id="impact-h">Impact breakdown</h2>
+      <div class="bars" id="bars"></div>
+    </section>
+
+    <section class="disclosure">
+      <label class="switch">
+        <input type="checkbox" id="honest">
+        <span class="switch-track" aria-hidden="true"></span>
+        <span class="switch-label">Full disclosure</span>
+      </label>
+      <p class="switch-hint">Enable to apply our complete water accounting framework.</p>
+    </section>
+
+    <section class="methodology" aria-labelledby="method-h">
+      <h2 id="method-h">Methodology</h2>
+      <p>Nobody agrees on how much water a single AI prompt uses. Published estimates differ by more than a hundred times, mostly because they disagree on what to count. The slider above lets you pick whose number you believe. Every figure below is modelled, not metered.</p>
+      <dl>
+        <dt>0.26 ml per prompt (Google)</dt>
+        <dd>Google's August 2025 technical report, median Gemini text prompt. Counts on-site cooling water only. Excludes water used to generate electricity, training, and networking.</dd>
+        <dt>0.32 ml per prompt (Altman)</dt>
+        <dd>Sam Altman's 2025 blog figure of 0.000085 gallons per ChatGPT query. A company statement, not an independent measurement.</dd>
+        <dt>2.2 ml per prompt (UCR onsite)</dt>
+        <dd>Shaolei Ren and colleagues at UC Riverside, on-site water for an average US data centre per request.</dd>
+        <dt>25 ml per prompt (Viral 2023)</dt>
+        <dd>Midpoint of the 2023 "a 500 ml bottle per 10 to 50 responses" estimate for a GPT-3 era deployment. This is the origin of the "bottle of water per chat" claim. Its own authors now consider it high for current models.</dd>
+        <dt>50 ml per prompt (Doomer)</dt>
+        <dd>UC Riverside's figure once the water evaporated at power plants to generate the electricity is included. Indirect water can be more than half of the total.</dd>
+        <dt>300 tokens per prompt</dt>
+        <dd>Our assumption for a median chat exchange. Change it in your head as needed.</dd>
+        <dt>5 litres of water per litre of beer</dt>
+        <dd>Brewery-only water use, reported at 3 to 10 litres per litre by Grundfos, MIT Sloan, and Asahi. Full disclosure mode uses this. If you also count growing the barley and hops, WWF and SABMiller put it at 60 to 300 litres per litre. We use 150 for that footnote and have chosen not to put it in the calculator, for your sake.</dd>
+        <dt>Reference bars</dt>
+        <dd>A five minute shower at about 65 litres; a beef burger at roughly 2,400 litres (a common water-footprint figure, approximate); one California almond at 3.56 litres (2019 study).</dd>
+      </dl>
+      <p>What this page does not say: that AI water use does not matter. Totals matter, and where data centres are built matters more than any per-prompt number. What it does say: the per-prompt figure is small and uncertain, and beer is a terrible way to offset anything.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Beer Offset is not a registered offset program. Nothing is. Please also drink water.</p>
+    <p><a href="https://github.com/" id="repo-link">Source</a></p>
+  </footer>
+
+  <div id="card" class="card" aria-hidden="true"></div>
+
   <script type="module" src="/src/main.ts"></script>
 </body>
 </html>
