@@ -1,0 +1,510 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-08T12:30:07.992166+00:00",
+  "title": "Design System: Beer Offset",
+  "extensions": {
+    "colorMeta": {
+      "field-green": {
+        "role": "primary",
+        "displayName": "Institutional Green",
+        "canonical": "oklch(32.3% 0.058 168.3)",
+        "tonalRamp": [
+          "oklch(15% 0.035 168.3)",
+          "oklch(25% 0.041 168.3)",
+          "oklch(35% 0.047 168.3)",
+          "oklch(45% 0.053 168.3)",
+          "oklch(55% 0.058 168.3)",
+          "oklch(70% 0.050 168.3)",
+          "oklch(85% 0.041 168.3)",
+          "oklch(95% 0.035 168.3)"
+        ]
+      },
+      "green-ink": {
+        "role": "primary",
+        "displayName": "Link Green",
+        "canonical": "oklch(36.7% 0.067 167.9)",
+        "tonalRamp": [
+          "oklch(15% 0.040 167.9)",
+          "oklch(25% 0.047 167.9)",
+          "oklch(35% 0.053 167.9)",
+          "oklch(45% 0.060 167.9)",
+          "oklch(55% 0.067 167.9)",
+          "oklch(70% 0.057 167.9)",
+          "oklch(85% 0.047 167.9)",
+          "oklch(95% 0.040 167.9)"
+        ]
+      },
+      "green-2": {
+        "role": "primary",
+        "displayName": "Ledger Green",
+        "canonical": "oklch(47.4% 0.086 165.3)",
+        "tonalRamp": [
+          "oklch(15% 0.052 165.3)",
+          "oklch(25% 0.060 165.3)",
+          "oklch(35% 0.069 165.3)",
+          "oklch(45% 0.077 165.3)",
+          "oklch(55% 0.086 165.3)",
+          "oklch(70% 0.073 165.3)",
+          "oklch(85% 0.060 165.3)",
+          "oklch(95% 0.052 165.3)"
+        ]
+      },
+      "green-tint": {
+        "role": "primary",
+        "displayName": "Pale Ledger Tint",
+        "canonical": "oklch(92.7% 0.019 162.9)",
+        "tonalRamp": [
+          "oklch(15% 0.012 162.9)",
+          "oklch(25% 0.013 162.9)",
+          "oklch(35% 0.015 162.9)",
+          "oklch(45% 0.017 162.9)",
+          "oklch(55% 0.019 162.9)",
+          "oklch(70% 0.016 162.9)",
+          "oklch(85% 0.013 162.9)",
+          "oklch(95% 0.012 162.9)"
+        ]
+      },
+      "ground": {
+        "role": "neutral",
+        "displayName": "Report Ground",
+        "canonical": "oklch(97.0% 0.004 157.2)",
+        "tonalRamp": [
+          "oklch(15% 0.002 157.2)",
+          "oklch(25% 0.003 157.2)",
+          "oklch(35% 0.003 157.2)",
+          "oklch(45% 0.004 157.2)",
+          "oklch(55% 0.004 157.2)",
+          "oklch(70% 0.004 157.2)",
+          "oklch(85% 0.003 157.2)",
+          "oklch(95% 0.002 157.2)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "oklch(100.0% 0.000 89.9)",
+        "tonalRamp": [
+          "oklch(15% 0.000 89.9)",
+          "oklch(25% 0.000 89.9)",
+          "oklch(35% 0.000 89.9)",
+          "oklch(45% 0.000 89.9)",
+          "oklch(55% 0.000 89.9)",
+          "oklch(70% 0.000 89.9)",
+          "oklch(85% 0.000 89.9)",
+          "oklch(95% 0.000 89.9)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "oklch(23.5% 0.018 165.2)",
+        "tonalRamp": [
+          "oklch(15% 0.011 165.2)",
+          "oklch(25% 0.013 165.2)",
+          "oklch(35% 0.015 165.2)",
+          "oklch(45% 0.017 165.2)",
+          "oklch(55% 0.018 165.2)",
+          "oklch(70% 0.016 165.2)",
+          "oklch(85% 0.013 165.2)",
+          "oklch(95% 0.011 165.2)"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Ink Secondary",
+        "canonical": "oklch(45.8% 0.025 165.1)",
+        "tonalRamp": [
+          "oklch(15% 0.015 165.1)",
+          "oklch(25% 0.017 165.1)",
+          "oklch(35% 0.020 165.1)",
+          "oklch(45% 0.022 165.1)",
+          "oklch(55% 0.025 165.1)",
+          "oklch(70% 0.021 165.1)",
+          "oklch(85% 0.017 165.1)",
+          "oklch(95% 0.015 165.1)"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "oklch(86.4% 0.017 162.7)",
+        "tonalRamp": [
+          "oklch(15% 0.010 162.7)",
+          "oklch(25% 0.012 162.7)",
+          "oklch(35% 0.014 162.7)",
+          "oklch(45% 0.015 162.7)",
+          "oklch(55% 0.017 162.7)",
+          "oklch(70% 0.014 162.7)",
+          "oklch(85% 0.012 162.7)",
+          "oklch(95% 0.010 162.7)"
+        ]
+      },
+      "rule-strong": {
+        "role": "neutral",
+        "displayName": "Strong Hairline",
+        "canonical": "oklch(75.3% 0.029 164.1)",
+        "tonalRamp": [
+          "oklch(15% 0.017 164.1)",
+          "oklch(25% 0.020 164.1)",
+          "oklch(35% 0.023 164.1)",
+          "oklch(45% 0.026 164.1)",
+          "oklch(55% 0.029 164.1)",
+          "oklch(70% 0.025 164.1)",
+          "oklch(85% 0.020 164.1)",
+          "oklch(95% 0.017 164.1)"
+        ]
+      },
+      "beer": {
+        "role": "secondary",
+        "displayName": "Beer Amber",
+        "canonical": "oklch(77.0% 0.139 80.0)",
+        "tonalRamp": [
+          "oklch(15% 0.083 80.0)",
+          "oklch(25% 0.097 80.0)",
+          "oklch(35% 0.111 80.0)",
+          "oklch(45% 0.125 80.0)",
+          "oklch(55% 0.139 80.0)",
+          "oklch(70% 0.118 80.0)",
+          "oklch(85% 0.097 80.0)",
+          "oklch(95% 0.083 80.0)"
+        ]
+      },
+      "foam": {
+        "role": "secondary",
+        "displayName": "Foam",
+        "canonical": "oklch(97.4% 0.030 88.4)",
+        "tonalRamp": [
+          "oklch(15% 0.018 88.4)",
+          "oklch(25% 0.021 88.4)",
+          "oklch(35% 0.024 88.4)",
+          "oklch(45% 0.027 88.4)",
+          "oklch(55% 0.030 88.4)",
+          "oklch(70% 0.026 88.4)",
+          "oklch(85% 0.021 88.4)",
+          "oklch(95% 0.018 88.4)"
+        ]
+      },
+      "report-red": {
+        "role": "tertiary",
+        "displayName": "Report Red",
+        "canonical": "oklch(50.1% 0.178 28.7)",
+        "tonalRamp": [
+          "oklch(15% 0.096 28.7)",
+          "oklch(25% 0.112 28.7)",
+          "oklch(35% 0.128 28.7)",
+          "oklch(45% 0.144 28.7)",
+          "oklch(55% 0.160 28.7)",
+          "oklch(70% 0.136 28.7)",
+          "oklch(85% 0.112 28.7)",
+          "oklch(95% 0.096 28.7)"
+        ]
+      },
+      "red-light": {
+        "role": "tertiary",
+        "displayName": "Red on Field",
+        "canonical": "oklch(73.1% 0.166 30.3)",
+        "tonalRamp": [
+          "oklch(15% 0.096 30.3)",
+          "oklch(25% 0.112 30.3)",
+          "oklch(35% 0.128 30.3)",
+          "oklch(45% 0.144 30.3)",
+          "oklch(55% 0.160 30.3)",
+          "oklch(70% 0.136 30.3)",
+          "oklch(85% 0.112 30.3)",
+          "oklch(95% 0.096 30.3)"
+        ]
+      },
+      "on-field-2": {
+        "role": "neutral",
+        "displayName": "Field Secondary",
+        "canonical": "oklch(84.2% 0.032 165.1)",
+        "tonalRamp": [
+          "oklch(15% 0.019 165.1)",
+          "oklch(25% 0.022 165.1)",
+          "oklch(35% 0.025 165.1)",
+          "oklch(45% 0.028 165.1)",
+          "oklch(55% 0.032 165.1)",
+          "oklch(70% 0.027 165.1)",
+          "oklch(85% 0.022 165.1)",
+          "oklch(95% 0.019 165.1)"
+        ]
+      },
+      "glass-stroke-on-field": {
+        "role": "neutral",
+        "displayName": "Glass Stroke",
+        "canonical": "oklch(94.4% 0.012 153.7)",
+        "tonalRamp": [
+          "oklch(15% 0.007 153.7)",
+          "oklch(25% 0.008 153.7)",
+          "oklch(35% 0.009 153.7)",
+          "oklch(45% 0.010 153.7)",
+          "oklch(55% 0.012 153.7)",
+          "oklch(70% 0.010 153.7)",
+          "oklch(85% 0.008 153.7)",
+          "oklch(95% 0.007 153.7)"
+        ]
+      },
+      "field-oxblood": {
+        "role": "tertiary",
+        "displayName": "Oxblood Field (honest)",
+        "canonical": "oklch(24.1% 0.069 27.4)",
+        "tonalRamp": [
+          "oklch(15% 0.041 27.4)",
+          "oklch(25% 0.048 27.4)",
+          "oklch(35% 0.055 27.4)",
+          "oklch(45% 0.062 27.4)",
+          "oklch(55% 0.069 27.4)",
+          "oklch(70% 0.059 27.4)",
+          "oklch(85% 0.048 27.4)",
+          "oklch(95% 0.041 27.4)"
+        ]
+      },
+      "on-field-honest": {
+        "role": "tertiary",
+        "displayName": "Blush (honest on-field)",
+        "canonical": "oklch(94.9% 0.019 33.4)",
+        "tonalRamp": [
+          "oklch(15% 0.012 33.4)",
+          "oklch(25% 0.014 33.4)",
+          "oklch(35% 0.015 33.4)",
+          "oklch(45% 0.017 33.4)",
+          "oklch(55% 0.019 33.4)",
+          "oklch(70% 0.016 33.4)",
+          "oklch(85% 0.014 33.4)",
+          "oklch(95% 0.012 33.4)"
+        ]
+      },
+      "on-field-2-honest": {
+        "role": "tertiary",
+        "displayName": "Faded Blush (honest on-field secondary)",
+        "canonical": "oklch(76.4% 0.066 29.4)",
+        "tonalRamp": [
+          "oklch(15% 0.039 29.4)",
+          "oklch(25% 0.046 29.4)",
+          "oklch(35% 0.053 29.4)",
+          "oklch(45% 0.059 29.4)",
+          "oklch(55% 0.066 29.4)",
+          "oklch(70% 0.056 29.4)",
+          "oklch(85% 0.046 29.4)",
+          "oklch(95% 0.039 29.4)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Cover title only."
+      },
+      "figure": {
+        "displayName": "Figure",
+        "purpose": "Hero token count; 120px on the share card."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Numbered section headings."
+      },
+      "pull": {
+        "displayName": "Pull",
+        "purpose": "Italic executive-summary pull line under a 2px rule."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "Methodology opening paragraph."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Paragraphs, max 68ch; tabular numerals."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Control labels, preset names, definition terms, share button."
+      },
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "Table and Figure captions, report meta, colophon meta."
+      }
+    },
+    "shadows": [
+      {
+        "name": "control-knob",
+        "value": "0 2px 6px -1px rgba(11, 61, 46, .35)",
+        "purpose": "Range slider thumb only."
+      },
+      {
+        "name": "switch-knob",
+        "value": "0 1px 3px rgba(0, 0, 0, .3)",
+        "purpose": "Toggle knob only."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "The single easing for all authored motion and state transitions."
+      },
+      {
+        "name": "revoked-slam",
+        "value": "0.5s cubic-bezier(0.16, 1, 0.3, 1); stamp rotate(-22deg) scale(1.7) blur(2px) to rotate(-14deg) scale(1), badge jolt translate(1px,2px) rotate(.6deg) at 55%",
+        "purpose": "The one authored moment; deferred until the badge is 40% in view."
+      },
+      {
+        "name": "glass-crossfade",
+        "value": "600ms cubic ease-out (1-(1-t)^3)",
+        "purpose": "Canvas glass fill to debt bar; deferred until in view; idle surface wave while beer is shown."
+      },
+      {
+        "name": "field-repaint",
+        "value": "background-color .6s cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Cover and results fields cross to oxblood in honest mode."
+      },
+      {
+        "name": "control-state",
+        "value": "background-color .15s / .25s",
+        "purpose": "Button and switch colour changes."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "all transitions and animations none; idle wave off",
+        "purpose": "prefers-reduced-motion: reduce."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "ticks-compact",
+        "value": "max-width 30rem"
+      },
+      {
+        "name": "bars-row",
+        "value": "40rem"
+      },
+      {
+        "name": "two-column",
+        "value": "48rem"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Share Button",
+      "kind": "button",
+      "refersTo": "button-share",
+      "description": "Primary action inside a field: download the impact statement.",
+      "html": "<div class=\"ds-field\"><button class=\"ds-btn-share\">Download impact statement</button></div>",
+      "css": ".ds-field{--field:#0b3d2e;--on-field:#f3f6f4;background:var(--field);padding:2rem} .ds-btn-share{padding:.8rem 1.25rem;border:1px solid var(--on-field);background:var(--on-field);color:var(--field);font:500 1rem 'Archivo','Helvetica Neue',Arial,sans-serif;cursor:pointer;border-radius:2px;transition:background-color .15s,color .15s} .ds-btn-share:hover{background:transparent;color:var(--on-field)} .ds-btn-share:focus-visible{outline:2px solid #1f6b50;outline-offset:3px}"
+    },
+    {
+      "name": "Stepper",
+      "kind": "button",
+      "refersTo": "button-stepper",
+      "description": "Count control in Table 1: square buttons around a serif figure.",
+      "html": "<div class=\"ds-stepper\"><button aria-label=\"Remove\"><svg viewBox=\"0 0 16 16\"><path d=\"M3 8h10\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"/></svg></button><output>2</output><button aria-label=\"Add\"><svg viewBox=\"0 0 16 16\"><path d=\"M3 8h10M8 3v10\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"/></svg></button></div>",
+      "css": ".ds-stepper{display:inline-flex;align-items:center;gap:.35rem} .ds-stepper button{width:2.25rem;height:2.25rem;display:inline-grid;place-items:center;border:1px solid #0b3d2e;background:#fff;color:#0b3d2e;cursor:pointer;border-radius:2px;transition:background-color .15s,color .15s} .ds-stepper svg{width:1rem;height:1rem} .ds-stepper button:hover{background:#0b3d2e;color:#f3f6f4} .ds-stepper button:active{transform:translateY(1px)} .ds-stepper button:focus-visible{outline:2px solid #1f6b50;outline-offset:3px} .ds-stepper output{min-width:2rem;text-align:center;font-family:'Source Serif 4',serif;font-size:1.35rem;color:#0b3d2e;font-variant-numeric:tabular-nums}"
+    },
+    {
+      "name": "Full Disclosure Switch",
+      "kind": "input",
+      "refersTo": "switch-track",
+      "description": "Native checkbox behind a pill track; red when on.",
+      "html": "<label class=\"ds-switch\"><input type=\"checkbox\"><span class=\"ds-switch-track\"></span><span class=\"ds-switch-label\">Full disclosure</span></label>",
+      "css": ".ds-switch{display:inline-flex;align-items:center;gap:.85rem;cursor:pointer;font-family:'Archivo',sans-serif} .ds-switch input{position:absolute;opacity:0;width:1px;height:1px} .ds-switch-track{width:3rem;height:1.6rem;border-radius:1rem;background:#9fb5aa;position:relative;transition:background-color .25s cubic-bezier(0.16, 1, 0.3, 1)} .ds-switch-track::after{content:'';position:absolute;top:.2rem;left:.2rem;width:1.2rem;height:1.2rem;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.3);transition:transform .25s cubic-bezier(0.16, 1, 0.3, 1)} .ds-switch input:checked+.ds-switch-track{background:#b3261e} .ds-switch input:checked+.ds-switch-track::after{transform:translateX(1.4rem)} .ds-switch input:focus-visible+.ds-switch-track{outline:2px solid #1f6b50;outline-offset:3px} .ds-switch-label{font-weight:600;font-size:1.05rem;color:#16211c}"
+    },
+    {
+      "name": "Trust Slider",
+      "kind": "input",
+      "description": "Native range with hairline track and paper thumb.",
+      "html": "<input class=\"ds-range\" type=\"range\" min=\"0\" max=\"1\" step=\"0.01\" value=\"0.35\" style=\"--pct:35%\">",
+      "css": ".ds-range{-webkit-appearance:none;appearance:none;width:100%;height:2rem;margin:0;background:transparent;cursor:pointer} .ds-range::-webkit-slider-runnable-track{height:2px;background:linear-gradient(90deg,#0b3d2e var(--pct,0%),#9fb5aa var(--pct,0%))} .ds-range::-moz-range-track{height:2px;background:#9fb5aa} .ds-range::-moz-range-progress{height:2px;background:#0b3d2e} .ds-range::-webkit-slider-thumb{-webkit-appearance:none;width:1.25rem;height:1.25rem;margin-top:-.6rem;border-radius:50%;background:#fff;border:2px solid #0b3d2e;box-shadow:0 2px 6px -1px rgba(11,61,46,.35)} .ds-range::-moz-range-thumb{width:1.25rem;height:1.25rem;border-radius:50%;background:#fff;border:2px solid #0b3d2e;box-shadow:0 2px 6px -1px rgba(11,61,46,.35)} .ds-range:focus-visible{outline:none} .ds-range:focus-visible::-webkit-slider-thumb{outline:2px solid #1f6b50;outline-offset:3px}"
+    },
+    {
+      "name": "Rosette Badge with REVOKED Stamp",
+      "kind": "custom",
+      "refersTo": "revoked-stamp",
+      "description": "Circular seal with text on a path; honest mode dims it and stamps REVOKED.",
+      "html": "<div class=\"ds-field\"><div class=\"ds-badge\"><svg viewBox=\"0 0 120 120\"><defs><path id=\"ds-ring\" d=\"M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0\"/></defs><circle cx=\"60\" cy=\"60\" r=\"57\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/><circle cx=\"60\" cy=\"60\" r=\"33\" fill=\"none\" stroke=\"currentColor\"/><text font-size=\"10\" letter-spacing=\"1.6\" fill=\"currentColor\" font-family=\"Archivo,sans-serif\" font-weight=\"500\"><textPath href=\"#ds-ring\">CERTIFIED OFFSET PARTNER · 2026 ·</textPath></text><path d=\"M60 40c6 6 9 11 9 17a9 9 0 0 1-18 0c0-6 3-11 9-17z\" fill=\"currentColor\"/><path d=\"M60 58v22M60 70c-3-4-7-5-11-5M60 74c3-4 7-5 11-5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\"/></svg><span class=\"ds-stamp\">REVOKED</span></div></div>",
+      "css": ".ds-field{--field:#3a0f0c;--on-field:#fbeae6;background:var(--field);padding:2rem} .ds-badge{position:relative;width:9rem;aspect-ratio:1;color:var(--on-field)} .ds-badge svg{width:100%;height:100%;display:block;opacity:.45} .ds-stamp{position:absolute;inset:32% -12%;display:grid;place-items:center;color:#ff7a66;background:var(--field);border:3px solid currentColor;border-radius:3px;font:700 1.5rem/1 'Archivo',sans-serif;letter-spacing:.12em;padding-inline:.3em;transform:rotate(-14deg);animation:ds-slam .5s cubic-bezier(0.16, 1, 0.3, 1) both} @keyframes ds-slam{from{transform:rotate(-22deg) scale(1.7);opacity:0;filter:blur(2px)}to{transform:rotate(-14deg) scale(1);opacity:1;filter:blur(0)}} @media (prefers-reduced-motion:reduce){.ds-stamp{animation:none}}"
+    },
+    {
+      "name": "Comparative Bar",
+      "kind": "custom",
+      "refersTo": "bar-track",
+      "description": "Figure 2 row: label, tinted track with scaled fill, serif value.",
+      "html": "<div class=\"ds-bars\"><div class=\"ds-bar ds-you\"><span class=\"ds-l\">Your beer</span><span class=\"ds-t\"><span class=\"ds-f\" style=\"--w:.05\"></span></span><span class=\"ds-v\">8 L</span></div><div class=\"ds-bar\"><span class=\"ds-l\">A five minute shower</span><span class=\"ds-t\"><span class=\"ds-f\" style=\"--w:.3\"></span></span><span class=\"ds-v\">65 L</span></div></div>",
+      "css": ".ds-bars{border-top:2px solid #0b3d2e;font-family:'Archivo',sans-serif;color:#16211c} .ds-bar{display:grid;grid-template-columns:12rem 1fr 5rem;gap:.75rem;align-items:center;padding:.6rem 0;border-bottom:1px solid #c9d6cf} .ds-l{font-size:.95rem} .ds-t{display:block;height:.9rem;background:#dcebe3;overflow:hidden} .ds-f{display:block;height:100%;background:#1f6b50;transform-origin:left;transform:scaleX(var(--w,0))} .ds-you .ds-l{font-weight:500;color:#0b3d2e} .ds-you .ds-f{background:#e2a93b} .ds-v{justify-self:end;font-family:'Source Serif 4',serif;font-size:1.05rem;color:#4b5c54}"
+    },
+    {
+      "name": "Auditor's Note",
+      "kind": "card",
+      "refersTo": "auditor-note",
+      "description": "Boxed note on paper with a green top rule.",
+      "html": "<div class=\"ds-note\"><p class=\"ds-note-text\">Our auditors have asked us to include a switch. We have included a switch.</p><p class=\"ds-note-hint\">Enable to apply our complete water accounting framework.</p></div>",
+      "css": ".ds-note{border:1px solid #9fb5aa;border-top:2px solid #0b3d2e;background:#fff;padding:1.5rem;max-width:44rem} .ds-note-text{margin:0 0 1rem;font-family:'Source Serif 4',serif;font-style:italic;font-size:1.15rem;color:#0b3d2e} .ds-note-hint{margin:0;font-family:'Archivo',sans-serif;font-size:.9rem;color:#4b5c54}"
+    },
+    {
+      "name": "Numbered Section Heading with Caption",
+      "kind": "custom",
+      "description": "Report section opener: numbered serif h2 and a Table/Figure caption.",
+      "html": "<div class=\"ds-sec\"><h2>2. Consumption disclosure</h2><p class=\"ds-cap\">Table 1. Units consumed by the reporting entity (you).</p></div>",
+      "css": ".ds-sec{background:#f3f6f4;padding:1.5rem} .ds-sec h2{font-family:'Source Serif 4',serif;font-weight:400;letter-spacing:-.01em;font-size:2rem;line-height:1.15;margin:0 0 .9rem;color:#0b3d2e} .ds-cap{font-family:'Archivo',sans-serif;font-size:.85rem;color:#4b5c54;margin:-.25rem 0 0;max-width:60ch}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Annual Report That Cracks",
+    "overview": "Beer Offset is set and paced like a real corporate ESG annual report: a full-bleed cover band, numbered sections, Table and Figure captions, footnote marks, hairline rules, a boxed auditor's note and a colophon. The joke lives entirely in the copy, which loses composure section by section; the typography, rules and grid never do. Every visual decision serves that straight face. If a surface looks like a landing page (centred hero, big-number cards, gradient), it has left the world.\n\nDensity is that of a printed report: one column of measured text (68ch) on a cool green-tinted ground, broken by two deep fields (the cover band and the results panel) that carry the institutional colour. Ornament is limited to what a report actually prints: rules, a rosette seal, a canvas figure, a rubber stamp. Motion is held still like paper, with one authored moment when honesty arrives.\n\nHonest mode is a world state, not a theme: toggling Full disclosure repaints both fields from institutional green to oxblood, stamps REVOKED across the rosette, turns the reader's own bar red and drains the glass into a debt bar. This repaint is a deliberate decision ruled on by the user and is part of the system.",
+    "keyCharacteristics": [
+      "Two-field structure: deep coloured fields (cover, results, share card) against a light report ground.",
+      "Serif for anything a reader would quote or a report would print as a figure; grotesk for tables, controls, captions and footnotes.",
+      "Hairline rules (1px) separate rows; a 2px rule in field green opens each table, figure and the auditor's note.",
+      "Tabular numerals globally.",
+      "Nearly square corners (2px) on every control.",
+      "One authored motion moment (the REVOKED slam); everything else is still or a quiet state transition."
+    ],
+    "rules": [
+      {
+        "name": "The Literal Amber Rule",
+        "body": "Beer amber appears only where beer is depicted. It is never a button, link, highlight or decoration.",
+        "section": "colors"
+      },
+      {
+        "name": "The Red Means Disclosure Rule",
+        "body": "Red appears only in honest mode and on the REVOKED stamp. Use report-red on light surfaces and red-light on any field; never the reverse.",
+        "section": "colors"
+      },
+      {
+        "name": "The Field Token Rule",
+        "body": "Anything on a field reads `--field`, `--on-field` and `--on-field-2`, never a literal green, so honest mode repaints it for free. The canvas glass and share card follow the same tokens.",
+        "section": "colors"
+      },
+      {
+        "name": "The Figures Are Serif Rule",
+        "body": "Any number a report would print as a result (hero count, stepper count, bar values, equivalents) is set in Source Serif 4 at weight 400 with tabular numerals.",
+        "section": "typography"
+      },
+      {
+        "name": "The Italic Drift Rule",
+        "body": "Italic serif carries the voice; roman serif carries the facts. Never italicise a control or a table cell.",
+        "section": "typography"
+      },
+      {
+        "name": "The Printed Page Rule",
+        "body": "Surfaces never cast shadows; only the two draggable knobs do, because they are physical controls.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** set every printed result in Source Serif 4, weight 400, tabular numerals.",
+      "**Do** number sections (\"4. Comparative impact\") and caption every table and figure (\"Figure 2. ...\").",
+      "**Do** open tables, figures and boxed notes with a 2px field-green rule and divide rows with 1px hairlines.",
+      "**Do** colour anything on a field through `--field`, `--on-field` and `--on-field-2` so honest mode repaints it.",
+      "**Do** repaint both fields oxblood in honest mode; this is a recorded user decision.",
+      "**Do** keep controls native (range, checkbox) and square-cornered (2px)."
+    ],
+    "donts": [
+      "**Don't** use beer amber anywhere beer is not depicted.",
+      "**Don't** use red before Full disclosure is on, except the stamp itself.",
+      "**Don't** add shadows to surfaces; only the slider thumb and switch knob carry one.",
+      "**Don't** use a cream or warm page ground; the ground is cool green-tinted white.",
+      "**Don't** add motion beyond the slam and the glass; the report is otherwise still.",
+      "**Don't** reuse the cover's report-meta line as a small label above section headings; headings carry their own number."
+    ]
+  }
+}
