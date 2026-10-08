@@ -374,8 +374,7 @@ body.honest .bar-you .bar-fill { background: var(--red); }
 .colophon { background: var(--paper); border-top: 1px solid var(--rule); padding-block: 2.5rem 3rem; }
 .colophon-meta { font-size: .85rem; color: var(--ink-2); }
 .colophon-line { font-family: var(--serif); font-style: italic; font-size: clamp(1.2rem, 1rem + 1vw, 1.6rem); color: var(--green); max-width: 40ch; }
-.colophon-link { font-size: .9rem; margin: 0; }
-.colophon-note { color: var(--ink-2); }
+.colophon-link { font-size: .9rem; margin: 0; color: var(--ink-2); }
 
 /* Share card, rendered off-screen at 1200x630 */
 .card {
