@@ -23,7 +23,11 @@ export function setupShare(button: HTMLButtonElement, card: HTMLElement) {
     button.disabled = true
     button.textContent = 'Rendering…'
     try {
-      const dataUrl = await toPng(card, { pixelRatio: 2, width: 1200, height: 630, cacheBust: true })
+      // The live card is parked off-screen; the clone must render at the origin.
+      const dataUrl = await toPng(card, {
+        pixelRatio: 2, width: 1200, height: 630, cacheBust: true,
+        style: { position: 'static', left: '0', top: '0' },
+      })
       const blob = await (await fetch(dataUrl)).blob()
       const file = new File([blob], FILE_NAME, { type: 'image/png' })
       if (navigator.canShare?.({ files: [file] })) {
