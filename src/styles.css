@@ -123,20 +123,25 @@ p { margin: 0 0 1rem; max-width: 68ch; }
 .badge-ring-text { fill: currentColor; font-family: var(--sans); font-weight: 500; }
 .stamp {
   position: absolute;
-  inset: 18% -6%;
+  inset: 32% -12%;
   display: none;
   place-items: center;
   color: var(--red-light);
+  background: var(--field);
   border: 3px solid currentColor;
   border-radius: 3px;
-  font: 700 clamp(1rem, .8rem + 1vw, 1.5rem) / 1 var(--sans);
-  letter-spacing: .14em;
+  font: 700 clamp(1.05rem, .85rem + 1vw, 1.5rem) / 1 var(--sans);
+  letter-spacing: .12em;
   padding-inline: .3em;
   transform: rotate(-14deg);
-  mix-blend-mode: screen;
-  box-shadow: 0 10px 24px -12px rgba(0, 0, 0, .55);
 }
-body.honest .stamp { display: grid; animation: slam .5s var(--ease-out) both; }
+body.honest .stamp { display: grid; }
+body.honest .badge svg { opacity: .45; }
+.badge.slam .stamp { animation: slam .5s var(--ease-out) both; }
+.badge.slam { animation: jolt .5s var(--ease-out) both; }
+@keyframes jolt {
+  0% { transform: none; } 55% { transform: translate(1px, 2px) rotate(.6deg); } 100% { transform: none; }
+}
 @keyframes slam {
   from { transform: rotate(-22deg) scale(1.7); opacity: 0; filter: blur(2px); }
   to   { transform: rotate(-14deg) scale(1); opacity: 1; filter: blur(0); }
@@ -181,14 +186,15 @@ main > section:last-child { border-bottom: 0; }
 .stepper { display: inline-flex; align-items: center; gap: .35rem; }
 .stepper button {
   width: 2.25rem; height: 2.25rem;
+  display: inline-grid; place-items: center;
   border: 1px solid var(--green);
   background: var(--paper);
   color: var(--green);
-  font: 500 1.15rem/1 var(--sans);
   cursor: pointer;
   border-radius: 2px;
   transition: background-color .15s, color .15s;
 }
+.stepper button svg { width: 1rem; height: 1rem; display: block; }
 .stepper button:hover { background: var(--green); color: var(--on-field); }
 .stepper button:active { transform: translateY(1px); }
 .stepper output {
@@ -264,9 +270,10 @@ main > section:last-child { border-bottom: 0; }
     align-items: center;
   }
 }
-.hero-heading { grid-area: h; color: var(--on-field-2); font-size: 1rem; font-family: var(--sans); font-weight: 500; letter-spacing: .02em; margin: 0; }
+.hero-heading { grid-area: h; color: var(--on-field); margin: 0; }
+.caption-on-field { color: var(--on-field-2); margin: .75rem 0 0; text-align: center; }
 .hero-glass { grid-area: glass; }
-.hero-glass canvas { display: block; margin: 0 auto; max-width: 100%; height: auto; }
+.hero-glass canvas { display: block; margin: 0 auto; width: 300px; max-width: 100%; height: auto; aspect-ratio: 300 / 420; }
 @media (max-width: 47.99rem) { .hero-glass canvas { max-width: 220px; } }
 .hero-text { grid-area: text; }
 .hero-verb { margin: 0 0 .25rem; font-size: 1.35rem; font-style: italic; color: var(--on-field-2); }
@@ -349,7 +356,8 @@ body.honest .bar-you .bar-fill { background: var(--red); }
 .switch input:focus-visible + .switch-track { outline: 2px solid var(--green-2); outline-offset: 3px; }
 .switch-label { font-weight: 600; font-size: 1.05rem; }
 .switch-hint { color: var(--ink-2); font-size: .9rem; margin: .75rem 0 0; }
-body.honest .switch-hint { color: var(--red); }
+#hint-honest { color: var(--red); }
+#hint-honest a { color: inherit; }
 
 /* Methodology: calm */
 .methodology .lede { font-family: var(--serif); font-size: 1.2rem; line-height: 1.45; max-width: 60ch; }
@@ -367,6 +375,7 @@ body.honest .switch-hint { color: var(--red); }
 .colophon-meta { font-size: .85rem; color: var(--ink-2); }
 .colophon-line { font-family: var(--serif); font-style: italic; font-size: clamp(1.2rem, 1rem + 1vw, 1.6rem); color: var(--green); max-width: 40ch; }
 .colophon-link { font-size: .9rem; margin: 0; }
+.colophon-note { color: var(--ink-2); }
 
 /* Share card, rendered off-screen at 1200x630 */
 .card {
@@ -375,7 +384,11 @@ body.honest .switch-hint { color: var(--red); }
   background: var(--field); color: var(--on-field); font-family: var(--serif);
   display: flex; flex-direction: column; justify-content: center; gap: 8px;
 }
-.card-brand { margin: 0 0 24px; font: 500 22px var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--on-field-2); }
+.card-brand { margin: 0 0 20px; font-size: 34px; color: var(--on-field); }
+.card-badge { position: absolute; right: 80px; top: 72px; width: 150px; height: 150px; color: var(--on-field); }
+.card-badge svg { width: 100%; height: 100%; display: block; }
+.card-badge .stamp { display: grid; inset: 32% -12%; font-size: 22px; }
+body.honest .card-badge svg { opacity: .45; }
 .card-tally { margin: 0; font-size: 34px; font-style: italic; color: var(--on-field-2); }
 .card-verb { margin: 0; font-size: 40px; }
 .card-number { margin: 0; font-size: 120px; line-height: 1; }

@@ -7,6 +7,10 @@ import { setupShare } from './share'
 type State = { counts: Record<string, number>; trust: number; mode: Mode }
 
 const GLASS_SCALE_ML = 2000
+// Honest-mode debt is 5x the beer, so it gets its own scale or a pint already fills the bar.
+const DEBT_SCALE_ML = 20000
+const ICON_MINUS = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>'
+const ICON_PLUS = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M8 3v10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>'
 const REFERENCE = [
   { label: 'A five minute shower', ml: 65_000 },
   { label: 'One beef burger', ml: 2_400_000 },
@@ -28,9 +32,9 @@ function buildPresets() {
       <span class="preset-name">${p.label}</span>
       <span class="preset-size">${p.sizeMl} ml</span>
       <div class="stepper">
-        <button type="button" data-delta="-1" aria-label="One fewer ${p.label.toLowerCase()}">&minus;</button>
+        <button type="button" data-delta="-1" aria-label="One fewer ${p.label.toLowerCase()}">${ICON_MINUS}</button>
         <output aria-live="off">0</output>
-        <button type="button" data-delta="1" aria-label="One more ${p.label.toLowerCase()}">+</button>
+        <button type="button" data-delta="1" aria-label="One more ${p.label.toLowerCase()}">${ICON_PLUS}</button>
       </div>
     </div>`).join('')
   root.addEventListener('click', e => {
@@ -83,6 +87,39 @@ function renderBars(deltaMl: number) {
 const glass = createGlass($<HTMLCanvasElement>('glass'))
 const share = setupShare($<HTMLButtonElement>('share'), $('card'))
 
+// The switch sits far below the badge and the glass, so their state changes
+// are deferred until the element scrolls into view: the visitor sees them land.
+const pending = new Map<Element, () => void>()
+const visible = new Set<Element>()
+const io = new IntersectionObserver(entries => {
+  for (const e of entries) {
+    if (e.isIntersecting) {
+      visible.add(e.target)
+      pending.get(e.target)?.()
+      pending.delete(e.target)
+    } else {
+      visible.delete(e.target)
+    }
+  }
+}, { threshold: 0.4 })
+io.observe($('glass'))
+io.observe($('badge'))
+
+function whenVisible(el: Element, run: () => void) {
+  if (visible.has(el)) run()
+  else pending.set(el, run)
+}
+
+function stampBadge(honest: boolean) {
+  const badge = $('badge')
+  if (!honest) { badge.classList.remove('slam'); pending.delete(badge); return }
+  whenVisible(badge, () => {
+    badge.classList.remove('slam')
+    void badge.offsetWidth
+    badge.classList.add('slam')
+  })
+}
+
 function render() {
   const beers = BEER_PRESETS.map(p => ({ sizeMl: p.sizeMl, count: state.counts[p.id] }))
   const r = offset({ beers, trust: state.trust, mode: state.mode })
@@ -101,6 +138,9 @@ function render() {
 
   $('summary-naive').hidden = honest
   $('summary-honest').hidden = !honest
+  $('hint-naive').hidden = honest
+  $('hint-honest').hidden = !honest
+  $('badge').setAttribute('aria-label', honest ? 'Certified Offset Partner badge, revoked' : 'Certified Offset Partner badge')
 
   $('hero-verb').textContent = honest ? 'You owe the GPUs' : 'You have offset'
   $('tokens').textContent = formatNumber(r.tokens)
@@ -111,8 +151,8 @@ function render() {
 
   renderBars(r.waterDeltaMl)
 
-  const level = (honest ? Math.abs(r.waterDeltaMl) : r.beerMl) / GLASS_SCALE_ML
-  glass.update(Math.min(1, level), state.mode)
+  const level = honest ? Math.abs(r.waterDeltaMl) / DEBT_SCALE_ML : r.beerMl / GLASS_SCALE_ML
+  whenVisible($('glass'), () => glass.update(Math.min(1, level), state.mode, Math.abs(r.waterDeltaMl)))
 
   share.update({ tally: tally(), tokens: r.tokens, mode: state.mode, stop: stop.label })
 }
@@ -126,5 +166,6 @@ $<HTMLInputElement>('trust').addEventListener('input', e => {
 $<HTMLInputElement>('honest').addEventListener('change', e => {
   state.mode = (e.target as HTMLInputElement).checked ? 'honest' : 'naive'
   render()
+  stampBadge(state.mode === 'honest')
 })
 render()

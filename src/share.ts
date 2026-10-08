@@ -11,7 +11,10 @@ export function setupShare(button: HTMLButtonElement, card: HTMLElement) {
   const idleLabel = button.textContent ?? 'Share your impact'
 
   function renderCard() {
+    const rosette = document.querySelector('#badge svg')?.outerHTML ?? ''
+    const stamp = data.mode === 'honest' ? '<span class="stamp" aria-hidden="true">REVOKED</span>' : ''
     card.innerHTML = `
+      <div class="card-badge">${rosette}${stamp}</div>
       <p class="card-brand">Beer Offset</p>
       <p class="card-tally">${data.tally}</p>
       <p class="card-verb">${data.mode === 'honest' ? 'I owe the GPUs' : 'I have offset'}</p>
