@@ -1,4 +1,4 @@
-import { toPng } from 'html-to-image'
+import { toBlob } from 'html-to-image'
 import { formatNumber, type Mode } from './calc'
 
 export type ShareData = { tally: string; tokens: number; mode: Mode; stop: string }
@@ -27,19 +27,23 @@ export function setupShare(button: HTMLButtonElement, card: HTMLElement) {
     button.textContent = 'Rendering…'
     try {
       // The live card is parked off-screen; the clone must render at the origin.
-      const dataUrl = await toPng(card, {
-        pixelRatio: 2, width: 1200, height: 630, cacheBust: true,
+      const blob = await toBlob(card, {
+        pixelRatio: 2, width: 1200, height: 630,
         style: { position: 'static', left: '0', top: '0' },
       })
-      const blob = await (await fetch(dataUrl)).blob()
+      if (!blob) throw new Error('toBlob returned null')
       const file = new File([blob], FILE_NAME, { type: 'image/png' })
       if (navigator.canShare?.({ files: [file] })) {
-        await navigator.share({ files: [file], title: 'Beer Offset' })
+        try {
+          await navigator.share({ files: [file], title: 'Beer Offset' })
+        } catch (err) {
+          // The share sheet needs a user gesture that a slow render can outlive;
+          // the PNG exists, so hand it over as a download instead.
+          if (err instanceof DOMException && err.name === 'NotAllowedError') download(blob)
+          else throw err
+        }
       } else {
-        const a = document.createElement('a')
-        a.href = dataUrl
-        a.download = FILE_NAME
-        a.click()
+        download(blob)
       }
       button.textContent = idleLabel
     } catch (err) {
@@ -53,6 +57,15 @@ export function setupShare(button: HTMLButtonElement, card: HTMLElement) {
     } finally {
       button.disabled = false
     }
+  }
+
+  function download(blob: Blob) {
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = FILE_NAME
+    a.click()
+    setTimeout(() => URL.revokeObjectURL(url), 10_000)
   }
 
   button.addEventListener('click', exportPng)

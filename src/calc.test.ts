@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import {
-  waterPerPrompt, trustFor, nearestStop, offset, fromTokens, formatNumber,
+  waterPerPrompt, trustFor, nearestStop, effectiveWaterPerPrompt, offset, fromTokens, formatNumber, formatLitres,
   STOPS, TOKENS_PER_PROMPT, BREWERY_RATIO,
 } from './calc'
 
@@ -41,8 +41,39 @@ describe('nearestStop', () => {
     expect(s.label).toBe('UCR onsite')
     expect(s.exact).toBe(false)
   })
-  it('within 10% of Altman counts as exact', () => {
-    expect(nearestStop(trustFor(0.33))).toMatchObject({ label: 'Altman', exact: true })
+  it('3% off Altman is only "near" Altman', () => {
+    expect(nearestStop(trustFor(0.33))).toMatchObject({ label: 'Altman', exact: false })
+  })
+  it('within 2.5% of Altman snaps to Altman', () => {
+    expect(nearestStop(trustFor(0.325))).toMatchObject({ label: 'Altman', exact: true })
+  })
+  it('one slider step (0.01) away from a stop is not exact', () => {
+    expect(nearestStop(trustFor(0.32) + 0.01).exact).toBe(false)
+  })
+})
+
+describe('effectiveWaterPerPrompt', () => {
+  it('snaps to the stop figure when within tolerance, so label and number agree', () => {
+    expect(effectiveWaterPerPrompt(trustFor(0.325))).toBe(0.32)
+  })
+  it('interpolates when not near a stop', () => {
+    expect(effectiveWaterPerPrompt(0.5)).toBeCloseTo(Math.sqrt(0.26 * 50), 6)
+  })
+  it('offset uses the snapped figure', () => {
+    const r = offset({ beers: [{ sizeMl: 500, count: 1 }], trust: trustFor(0.325), mode: 'naive' })
+    expect(r.waterPerPromptMl).toBe(0.32)
+    expect(r.prompts).toBeCloseTo(500 / 0.32, 6)
+  })
+})
+
+describe('formatLitres', () => {
+  it('keeps fractions below 10 L and groups large values', () => {
+    expect(formatLitres(330)).toBe('0.33 L')
+    expect(formatLitres(3560)).toBe('3.56 L')
+    expect(formatLitres(65_000)).toBe('65 L')
+    expect(formatLitres(2_400_000)).toBe('2,400 L')
+    expect(formatLitres(0)).toBe('0 L')
+    expect(formatLitres(-2000)).toBe('2 L')
   })
 })
 

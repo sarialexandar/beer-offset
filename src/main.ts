@@ -1,5 +1,5 @@
 import {
-  BEER_PRESETS, STOPS, offset, nearestStop, trustFor, formatNumber, type Mode,
+  BEER_PRESETS, STOPS, offset, nearestStop, trustFor, formatNumber, formatLitres, type Mode,
 } from './calc'
 import { createGlass } from './glass'
 import { setupShare } from './share'
@@ -79,7 +79,7 @@ function renderBars(deltaMl: number) {
       <div class="bar${r.you ? ' bar-you' : ''}">
         <span class="bar-label">${r.label}</span>
         <span class="bar-track"><span class="bar-fill" style="--w:${w}"></span></span>
-        <span class="bar-value">${formatNumber(r.ml / 1000)} L</span>
+        <span class="bar-value">${formatLitres(r.ml)}</span>
       </div>`
   }).join('')
 }

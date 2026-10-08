@@ -41,7 +41,8 @@ export const EQUIVALENTS = [
 
 const MIN_ML = STOPS[0].ml
 const MAX_ML = STOPS[STOPS.length - 1].ml
-const STOP_TOLERANCE = 0.1
+// Half a slider step (0.01 moves ~5.4%): only a tick position counts as a stop.
+const STOP_TOLERANCE = 0.025
 
 const finite = (n: number) => (Number.isFinite(n) ? n : 0)
 const clamp01 = (n: number) => Math.min(1, Math.max(0, finite(n)))
@@ -64,9 +65,17 @@ export function nearestStop(trust: number): { label: string; ml: number; exact: 
   return { label: best.label, ml: best.ml, exact }
 }
 
+// The figure the page computes with: the stop's published number when the
+// slider sits on a stop, otherwise the interpolated value. Keeps the label
+// and the number honest with each other.
+export function effectiveWaterPerPrompt(trust: number): number {
+  const stop = nearestStop(trust)
+  return stop.exact ? stop.ml : waterPerPrompt(trust)
+}
+
 export function offset(input: Input): Result {
   const beerMl = input.beers.reduce((sum, b) => sum + nonNeg(b.sizeMl) * nonNeg(b.count), 0)
-  const waterPerPromptMl = waterPerPrompt(input.trust)
+  const waterPerPromptMl = effectiveWaterPerPrompt(input.trust)
   const waterDeltaMl = noNegZero(input.mode === 'honest' ? beerMl - beerMl * BREWERY_RATIO : beerMl)
   const prompts = noNegZero(waterDeltaMl / waterPerPromptMl)
   const tokens = noNegZero(prompts * TOKENS_PER_PROMPT)
@@ -76,7 +85,7 @@ export function offset(input: Input): Result {
 
 // Phase 2 entry point: tokens used -> beer "earned" under the naive premise.
 export function fromTokens(tokens: number, trust: number): { beerMl: number; pints: number } {
-  const beerMl = (nonNeg(tokens) / TOKENS_PER_PROMPT) * waterPerPrompt(trust)
+  const beerMl = (nonNeg(tokens) / TOKENS_PER_PROMPT) * effectiveWaterPerPrompt(trust)
   return { beerMl, pints: beerMl / 500 }
 }
 
@@ -84,4 +93,9 @@ const nf = new Intl.NumberFormat('en', { maximumSignificantDigits: 3 })
 
 export function formatNumber(n: number): string {
   return nf.format(Math.round(Math.abs(finite(n))))
+}
+
+// Litres from millilitres, keeping fractions for small amounts (a can is 0.33 L).
+export function formatLitres(ml: number): string {
+  return `${nf.format(Math.abs(finite(ml)) / 1000)} L`
 }
